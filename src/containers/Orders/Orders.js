@@ -1,12 +1,17 @@
 import React, { Component } from "react";
 
-class Orders extends Component {
-  state = {
+import Order from "../../components/Order/Order";
 
-  }
+class Orders extends Component {
+  state = {};
 
   render() {
-    return ();
+    return (
+      <div>
+        <Order />
+        <Order />
+      </div>
+    );
   }
 }
 
