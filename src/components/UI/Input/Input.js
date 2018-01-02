@@ -2,7 +2,7 @@ import React from "react";
 
 const input = props => (
   <div>
-    <label htmlFor="">{props.label}</label>
+    <label>{props.label}</label>
   </div>
 );
 
