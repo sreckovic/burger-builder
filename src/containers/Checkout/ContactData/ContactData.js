@@ -9,11 +9,57 @@ import classes from "./ContactData.css";
 
 class ContactData extends Component {
   state = {
-    name: "",
-    email: "",
-    address: {
-      street: "",
-      postalCode: ""
+    orderForm: {
+      name: {
+        elementType: "input",
+        elementConfing: {
+          type: "text",
+          placeholder: "Your Name"
+        },
+        value: ""
+      },
+      street: {
+        elementType: "input",
+        elementConfing: {
+          type: "text",
+          placeholder: "Street"
+        },
+        value: ""
+      },
+      zipcode: {
+        elementType: "input",
+        elementConfing: {
+          type: "text",
+          placeholder: "Zip Code"
+        },
+        value: ""
+      },
+      country: {
+        elementType: "input",
+        elementConfing: {
+          type: "text",
+          placeholder: "Country"
+        },
+        value: ""
+      },
+      email: {
+        elementType: "input",
+        elementConfing: {
+          type: "email",
+          placeholder: "Your Email"
+        },
+        value: ""
+      },
+      deliveryMethod: {
+        elementType: "select",
+        elementConfing: {
+          options: [
+            { value: "fastest", displayValue: "Fastest" },
+            { value: "cheapest", displayValue: "Cheapest" }
+          ]
+        },
+        value: ""
+      }
     },
     loading: false
   };
@@ -25,17 +71,7 @@ class ContactData extends Component {
     this.setState({ loading: true });
     const order = {
       ingredients: this.props.ingredients,
-      price: this.props.price, // not a setup that you will use in real app, you calculate price on server side
-      customer: {
-        name: "Max Schwarzmuller",
-        address: {
-          street: "Teststreet 1",
-          zipcode: "12345",
-          country: "Germany"
-        },
-        email: "test@test.com"
-      },
-      deliveryMethod: "fastest"
+      price: this.props.price // not a setup that you will use in real app, you calculate price on server side
     };
     axios
       .post("/orders.json", order)
@@ -49,6 +85,7 @@ class ContactData extends Component {
   render() {
     let form = (
       <form action="">
+<<<<<<< HEAD
         <Input
           inputtype="input"
           type="text"
@@ -57,6 +94,11 @@ class ContactData extends Component {
         />
         <Input
           inputtype="input"
+=======
+        <input elementType="" elementConfing="" value="" />
+        <input
+          className={classes.Input}
+>>>>>>> 1c1229080b65e4213bf4f8da9a6107c54d795bd5
           type="email"
           name="email"
           placeholder="Your Mail"
