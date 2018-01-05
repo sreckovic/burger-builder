@@ -28,6 +28,7 @@ class BurgerBuilder extends Component {
 
   componentDidMount() {
     console.log(this.props);
+    /*
     axios
       .get("https://react-my-burger-e91be.firebaseio.com/ingredients.json")
       .then(response => {
@@ -36,6 +37,7 @@ class BurgerBuilder extends Component {
       .catch(error => {
         this.setState({ error: true });
       });
+    */
   }
 
   updatePurchaseState(ingredients) {
