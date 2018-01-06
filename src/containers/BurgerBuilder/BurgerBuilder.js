@@ -13,9 +13,9 @@ import * as actionTypes from "../../store/actions";
 
 class BurgerBuilder extends Component {
   state = {
-    //ingredients: null,
+    //ingredients: null, // moved all to redux state
     //totalPrice: 4,
-    purchasable: false,
+    //purchasable: false,
     purchasing: false,
     loading: false,
     error: false
@@ -44,8 +44,8 @@ class BurgerBuilder extends Component {
         return sum + el;
       }, 0);
 
-    this.setState({ purchasable: sum > 0 });
-    console.log(sum);
+    // this.setState({ purchasable: sum > 0 });
+    return sum > 0;
   }
 
   /*
@@ -93,6 +93,7 @@ class BurgerBuilder extends Component {
     this.setState({ purchasing: false });
   };
 
+  /*
   purchaseContinueHandler = () => {
     const queryParams = [];
     for (let i in this.state.ingredients) {
@@ -108,6 +109,11 @@ class BurgerBuilder extends Component {
       pathname: "/checkout",
       search: "?" + queryString
     });
+  };
+  */
+
+  purchaseContinueHandler = () => {
+    this.props.history.push("/checkout");
   };
 
   render() {
@@ -134,7 +140,7 @@ class BurgerBuilder extends Component {
             ingredientAdded={this.props.onIgredientAdded}
             ingredientRemoved={this.props.onIgredientRemoved}
             disabled={disabledInfo}
-            purchasable={this.state.purchasable}
+            purchasable={this.updatePurchaseState(this.props.ings)}
             ordered={this.purchaseHandler}
             price={this.props.price}
           />

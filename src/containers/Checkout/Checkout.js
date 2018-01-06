@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
+import { connect } from "react-redux";
 
 import CheckoutSummary from "../../components/Order/CheckoutSummary/CheckoutSummary";
 import ContactData from "./ContactData/ContactData";
 
 class Checkout extends Component {
+  /*
   state = {
     ingredients: null,
     totalPrice: 0
@@ -24,6 +26,7 @@ class Checkout extends Component {
     }
     this.setState({ ingredients: ingredients, totalPrice: price });
   }
+  */
 
   checkoutCancelledHandler = () => {
     this.props.history.goBack();
