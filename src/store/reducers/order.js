@@ -7,12 +7,20 @@ const initialState = {
   purchased: false
 };
 
+const purchaseInit = (state, action) => {
+  return updateObject(state, { purchased: false });
+};
+
+const purchaseBurgerStart = (state, action) => {
+  return updateObject(state, { loading: true });
+};
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.PURCHASE_INIT:
-      return updateObject(state, { purchased: false });
+      return purchaseInit(state, action);
     case actionTypes.PURCHASE_BURGER_START:
-      return updateObject(state, { loading: true });
+      return purchaseBurgerStart(state, action);
     case actionTypes.PURCHASE_BURGER_SUCCESS:
       const newOrder = updateObject(action.orderData, { id: action.orderId });
       return updateObject(state, {
