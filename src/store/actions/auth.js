@@ -1,4 +1,5 @@
 import axios from "axios";
+import config from "../../config";
 
 import * as actionTypes from "./actionTypes";
 
@@ -22,11 +23,27 @@ export const authFail = error => {
   };
 };
 
-export const auth = (email, password) => {
+export const auth = (email, password, isSignup) => {
   return dispatch => {
     dispatch(authStart());
-    axios.post(
-      "https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key="
-    );
+    const authData = {
+      email: email,
+      password: password,
+      returnSecureToken: true
+    };
+    let endpoint = config.signupEndpoint + config.apiKey;
+    if (!isSignup) {
+      endpoint = config.signinEndpoint + config.apiKey;
+    }
+    axios
+      .post(endpoint, authData)
+      .then(response => {
+        console.log(response);
+        dispatch(authSuccess(response.data));
+      })
+      .catch(err => {
+        console.log(err);
+        dispatch(authFail(err));
+      });
   };
 };
