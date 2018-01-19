@@ -1,5 +1,5 @@
 import * as actionTypes from "./actionTypes";
-import axios from "../../axios-orders";
+//import axios from "../../axios-orders";
 
 export const addIgredient = name => {
   return {
@@ -31,6 +31,7 @@ export const fetchIngredientsFailed = () => {
 
 // Our asynchronous action
 export const initIgredients = () => {
+  /*
   return dispatch => {
     axios
       .get("https://react-my-burger-e91be.firebaseio.com/ingredients.json")
@@ -40,5 +41,9 @@ export const initIgredients = () => {
       .catch(error => {
         dispatch(fetchIngredientsFailed());
       });
+  };
+  */
+  return {
+    type: actionTypes.INIT_INGREDIENTS
   };
 };
