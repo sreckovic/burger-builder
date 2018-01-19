@@ -98,6 +98,7 @@ export const setAuthRedirectPath = path => {
 };
 
 export const authCheckState = () => {
+  /*
   return dispatch => {
     const token = localStorage.getItem("token");
     if (!token) {
@@ -116,5 +117,9 @@ export const authCheckState = () => {
         );
       }
     }
+  };
+  */
+  return {
+    type: actionTypes.AUTH_CHECK_STATE
   };
 };
