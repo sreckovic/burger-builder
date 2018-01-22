@@ -1,5 +1,5 @@
 import * as actionTypes from "../actions/actionTypes";
-import axios from "../../axios-orders";
+// import axios from "../../axios-orders";
 
 export const purchaseBurgerSuccess = (id, orderData) => {
   return {
@@ -23,6 +23,7 @@ export const purchaseBurgerStart = () => {
 };
 
 export const purchaseBurger = (orderData, token) => {
+  /*
   return dispatch => {
     dispatch(purchaseBurgerStart());
     axios
@@ -34,6 +35,12 @@ export const purchaseBurger = (orderData, token) => {
       .catch(error => {
         dispatch(purchaseBurgerFail(error));
       });
+  };
+  */
+  return {
+    type: actionTypes.PURCHASE_BURGER,
+    orderData: orderData,
+    token: token
   };
 };
 
@@ -64,6 +71,7 @@ export const fetchOrdersStart = () => {
 };
 
 export const fetchOrders = (token, userId) => {
+  /*
   return dispatch => {
     dispatch(fetchOrdersStart());
     const queryParams =
@@ -82,5 +90,11 @@ export const fetchOrders = (token, userId) => {
         dispatch(fetchOrdersFail(err));
         // this.setState({ loading: false });
       });
+  };
+  */
+  return {
+    type: actionTypes.FETCH_ORDERS,
+    token: token,
+    userId: userId
   };
 };
